@@ -5,6 +5,14 @@ VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat", "Jobsity.Chat\Jobsity.Chat.csproj", "{D9B6FAD3-890E-4D6F-86F0-1E5DB68B10A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.Service", "Jobsity.Chat.Service\Jobsity.Chat.Service.csproj", "{4D84E7FF-2896-4CA7-8007-D31CFFB1E9F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.Domain", "Jobsity.Chat.Domain\Jobsity.Chat.Domain.csproj", "{5E32CD65-9385-49B7-B78A-951E0917A3AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.CrossCutting", "Jobsity.Chat.CrossCutting\Jobsity.Chat.CrossCutting.csproj", "{D5C0B5B1-376D-44BE-97B8-420E5C9CEF68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.Data", "Jobsity.Chat.Data\Jobsity.Chat.Data.csproj", "{B6E63591-88CB-4017-990F-A11E93FD9F9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +23,22 @@ Global
 		{D9B6FAD3-890E-4D6F-86F0-1E5DB68B10A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9B6FAD3-890E-4D6F-86F0-1E5DB68B10A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9B6FAD3-890E-4D6F-86F0-1E5DB68B10A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D84E7FF-2896-4CA7-8007-D31CFFB1E9F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D84E7FF-2896-4CA7-8007-D31CFFB1E9F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D84E7FF-2896-4CA7-8007-D31CFFB1E9F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D84E7FF-2896-4CA7-8007-D31CFFB1E9F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E32CD65-9385-49B7-B78A-951E0917A3AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E32CD65-9385-49B7-B78A-951E0917A3AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E32CD65-9385-49B7-B78A-951E0917A3AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E32CD65-9385-49B7-B78A-951E0917A3AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5C0B5B1-376D-44BE-97B8-420E5C9CEF68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5C0B5B1-376D-44BE-97B8-420E5C9CEF68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5C0B5B1-376D-44BE-97B8-420E5C9CEF68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5C0B5B1-376D-44BE-97B8-420E5C9CEF68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6E63591-88CB-4017-990F-A11E93FD9F9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6E63591-88CB-4017-990F-A11E93FD9F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6E63591-88CB-4017-990F-A11E93FD9F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6E63591-88CB-4017-990F-A11E93FD9F9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
