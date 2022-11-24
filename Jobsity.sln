@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.CrossCutting",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.Data", "Jobsity.Chat.Data\Jobsity.Chat.Data.csproj", "{B6E63591-88CB-4017-990F-A11E93FD9F9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobsity.Chat.Test.xUnit", "Jobsity.Chat.Test.xUnit\Jobsity.Chat.Test.xUnit.csproj", "{BD2E2479-9C61-4DF4-B98E-D52D8894B99D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B6E63591-88CB-4017-990F-A11E93FD9F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6E63591-88CB-4017-990F-A11E93FD9F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6E63591-88CB-4017-990F-A11E93FD9F9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD2E2479-9C61-4DF4-B98E-D52D8894B99D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD2E2479-9C61-4DF4-B98E-D52D8894B99D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD2E2479-9C61-4DF4-B98E-D52D8894B99D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD2E2479-9C61-4DF4-B98E-D52D8894B99D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Jobsity.Chat.Data\Jobsity.Chat.Data.csproj" />
     <ProjectReference Include="..\Jobsity.Chat.Domain\Jobsity.Chat.Domain.csproj" />
   </ItemGroup>
 

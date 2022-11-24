@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Jobsity.Chat.Data\Jobsity.Chat.Data.csproj" />
     <ProjectReference Include="..\Jobsity.Chat.Domain\Jobsity.Chat.Domain.csproj" />
     <ProjectReference Include="..\Jobsity.Chat.Service\Jobsity.Chat.Service.csproj" />
