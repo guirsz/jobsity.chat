@@ -17,5 +17,6 @@ namespace Jobsity.Chat.Domain.Entities
         public string Email { get; set; }
         public string Password { get; set; }
         public string Name { get; set; }
+        public List<MessageEntity> Messages { get; set; }
     }
 }

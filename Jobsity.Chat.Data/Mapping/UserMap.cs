@@ -21,6 +21,8 @@ namespace Jobsity.Chat.Data.Mapping
             builder.Property(x => x.Password)
                 .IsRequired()
                 .HasMaxLength(20);
+
+            builder.HasMany(a => a.Messages).WithOne(a => a.User);
         }
     }
 }

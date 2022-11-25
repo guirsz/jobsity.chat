@@ -7,6 +7,7 @@ namespace Jobsity.Chat.Data.Context
     public class MyContext : DbContext
     {
         public DbSet<UserEntity> Users { get; set; }
+        public DbSet<MessageEntity> Messages { get; set; }
 
         public MyContext(DbContextOptions<MyContext> options) : base(options)
         {
@@ -23,6 +24,7 @@ namespace Jobsity.Chat.Data.Context
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<UserEntity>(new UserMap().Configure);
+            modelBuilder.Entity<MessageEntity>(new MessageMap().Configure);
         }
     }
 }

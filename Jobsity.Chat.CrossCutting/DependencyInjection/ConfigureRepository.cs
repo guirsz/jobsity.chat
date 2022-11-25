@@ -11,6 +11,7 @@ namespace Jobsity.Chat.CrossCutting.DependencyInjection
         {
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IMessageRepository, MessageRepository>();
         }
     }
 }

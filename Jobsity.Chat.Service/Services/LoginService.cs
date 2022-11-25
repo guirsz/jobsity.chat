@@ -78,33 +78,26 @@ namespace Jobsity.Chat.Service.Services
                 created = createDate.ToString("yyyy-MM-ddTHH:mm:ss"),
                 expiration = expirationDate.ToString("yyyy-MM-ddTHH:mm:ss"),
                 accessToken = token,
-                userName = email,
+                userEmail = email,
+                userName = name,
                 message = "User logged in successfully."
             };
         }
 
         private string CreateToken(ClaimsIdentity identity, DateTime createDate, DateTime expirationDate, JwtSecurityTokenHandler handler)
         {
-            try
+            var securityToken = handler.CreateToken(new SecurityTokenDescriptor
             {
-                var securityToken = handler.CreateToken(new SecurityTokenDescriptor
-                {
-                    Issuer = tokenConfigurations.Issuer,
-                    Audience = tokenConfigurations.Audience,
-                    SigningCredentials = signingConfigurations.SigningCredencials,
-                    Subject = identity,
-                    NotBefore = createDate,
-                    Expires = expirationDate
-                });
+                Issuer = tokenConfigurations.Issuer,
+                Audience = tokenConfigurations.Audience,
+                SigningCredentials = signingConfigurations.SigningCredencials,
+                Subject = identity,
+                NotBefore = createDate,
+                Expires = expirationDate                
+            });
 
-                var token = handler.WriteToken(securityToken);
-                return token;
-            }
-            catch (Exception err)
-            {
-                return string.Empty;
-            }
-            
+            var token = handler.WriteToken(securityToken);
+            return token;
         }
     }
 }

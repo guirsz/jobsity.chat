@@ -6,11 +6,11 @@ using System.Net;
 
 namespace Jobsity.Chat.Controllers
 {
-    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class LoginController : ControllerBase
     {
+        [AllowAnonymous]
         [HttpPost]
         public async Task<object> Login([FromBody] LoginDto loginDto, [FromServices] ILoginService services)
         {
@@ -34,6 +34,13 @@ namespace Jobsity.Chat.Controllers
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
+        }
+
+        [Authorize("Bearer")]
+        [HttpGet]
+        public object Get()
+        {
+            return new { Message = "Hello World" };
         }
     }
 }

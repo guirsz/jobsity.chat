@@ -31,6 +31,23 @@ namespace Jobsity.Chat.CrossCutting.DependencyInjection
                 paramsValidation.ValidateIssuerSigningKey = true;
                 paramsValidation.ValidateLifetime = true;
                 paramsValidation.ClockSkew = TimeSpan.Zero;
+
+                bearerOptions.Events = new JwtBearerEvents
+                {
+                    OnMessageReceived = context =>
+                    {
+                        var accessToken = context.Request.Query["access_token"];
+
+                        // If the request is for our hub...
+                        var path = context.HttpContext.Request.Path;
+                        if (accessToken.Count > 0 && (path.StartsWithSegments("/chat")))
+                        {
+                            // Read the token out of the query string
+                            context.Token = accessToken[0];
+                        }
+                        return Task.CompletedTask;
+                    }
+                };
             });
         }
 
