@@ -85,18 +85,26 @@ namespace Jobsity.Chat.Service.Services
 
         private string CreateToken(ClaimsIdentity identity, DateTime createDate, DateTime expirationDate, JwtSecurityTokenHandler handler)
         {
-            var securityToken = handler.CreateToken(new SecurityTokenDescriptor
+            try
             {
-                Issuer = tokenConfigurations.Issuer,
-                Audience = tokenConfigurations.Audience,
-                SigningCredentials = signingConfigurations.SigningCredencials,
-                Subject = identity,
-                NotBefore = createDate,
-                Expires = expirationDate
-            });
+                var securityToken = handler.CreateToken(new SecurityTokenDescriptor
+                {
+                    Issuer = tokenConfigurations.Issuer,
+                    Audience = tokenConfigurations.Audience,
+                    SigningCredentials = signingConfigurations.SigningCredencials,
+                    Subject = identity,
+                    NotBefore = createDate,
+                    Expires = expirationDate
+                });
 
-            var token = handler.WriteToken(securityToken);
-            return token;
+                var token = handler.WriteToken(securityToken);
+                return token;
+            }
+            catch (Exception err)
+            {
+                return string.Empty;
+            }
+            
         }
     }
 }
