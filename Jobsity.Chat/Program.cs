@@ -14,7 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<MyContext>(opt => opt.UseInMemoryDatabase("JobsityInMemoryDB"), ServiceLifetime.Transient, ServiceLifetime.Singleton);
+builder.Services.AddDbContext<MyContext>(opt => opt.UseInMemoryDatabase("JobsityInMemoryDB"), ServiceLifetime.Singleton, ServiceLifetime.Singleton);
 builder.Services.ConfigureDependenciesService();
 builder.Services.ConfigureDependenciesRepository();
 
@@ -52,6 +52,7 @@ app.UseEndpoints(endpoints =>
     endpoints.MapHealthChecks("/health");
 });
 
+app.DataBaseFeed();
 app.MapHub<ChatHub>("/chat");
 app.UseRabbitListener();
 
