@@ -8,11 +8,34 @@ namespace Jobsity.Chat.Service.Services
     {
         private readonly IUserRepository userRepository;
         private readonly IMessageRepository messageRepository;
+        private const string StockCommand = "/stock=";
 
         public MessageService(IUserRepository userRepository, IMessageRepository messageRepository)
         {
             this.userRepository = userRepository;
             this.messageRepository = messageRepository;
+        }
+
+        public List<string> GetStockCommandsFromMessage(ref string message)
+        {
+            List<string> results = new List<string>();
+            var indexOfCommand = message.IndexOf(StockCommand);
+            while (indexOfCommand != -1) 
+            {
+                var command = string.Empty;
+                for (int i = indexOfCommand + StockCommand.Length; i < message.Length; i++)
+                {
+                    if (message[i] == ' ') break;
+                    command = $"{command}{message[i]}";
+                }
+                if (command != string.Empty)
+                {
+                    results.Add(command);
+                }
+                message = message.Replace($"{StockCommand}{command}", string.Empty, true, null);
+                indexOfCommand = message.IndexOf(StockCommand);
+            }
+            return results;
         }
 
         public async Task<bool> RegisterMessage(string senderEmail, string message)

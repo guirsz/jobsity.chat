@@ -1,8 +1,9 @@
+using Jobsity.Chat;
+using Jobsity.Chat.BotQueue;
 using Jobsity.Chat.CrossCutting.DependencyInjection;
 using Jobsity.Chat.Data.Context;
 using Jobsity.Chat.SignalR;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,11 +18,15 @@ builder.Services.AddDbContext<MyContext>(opt => opt.UseInMemoryDatabase("Jobsity
 builder.Services.ConfigureDependenciesService();
 builder.Services.ConfigureDependenciesRepository();
 
+builder.Services.ConfigureQueue(builder.Configuration);
 builder.Services.ConfigureAuthentication(builder.Configuration);
 builder.Services.ConfigureAuthorization();
 
 builder.Services.AddSignalR();
 builder.Services.AddHealthChecks();
+
+//builder.Services.AddSingleton<ChatHub>();
+builder.Services.AddSingleton<BotQueueOperations>();
 
 var app = builder.Build();
 
@@ -48,5 +53,6 @@ app.UseEndpoints(endpoints =>
 });
 
 app.MapHub<ChatHub>("/chat");
+app.UseRabbitListener();
 
 app.Run();

@@ -35,12 +35,5 @@ namespace Jobsity.Chat.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
-
-        [Authorize("Bearer")]
-        [HttpGet]
-        public object Get()
-        {
-            return new { Message = "Hello World" };
-        }
     }
 }
