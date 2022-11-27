@@ -15,6 +15,12 @@ namespace Jobsity.Chat.SignalR
         {
             this.messageService = messageService;
             this.botQueueOperations = botQueueOperations;
+            this.botQueueOperations.MessageReceived += BotQueueOperations_MessageReceived;
+        }
+
+        private void BotQueueOperations_MessageReceived(object? sender, string e)
+        {
+            Clients.All.SendAsync("messageReceived", "Bot", e).Wait();
         }
 
         public async Task PostMessage(string userName, string message)
@@ -26,17 +32,9 @@ namespace Jobsity.Chat.SignalR
             }
             if (!string.IsNullOrWhiteSpace(message))
             {
-                if (botQueueOperations.IsThisUserTheBot(userName))
-                {
-                    userName = "Bot";
-                }
-                else
-                {
-                    var senderEmail = Context.User.Identities.FirstOrDefault().Name;
-                    await messageService.RegisterMessage(senderEmail, message);
-                }
+                var senderEmail = Context.User.Identities.FirstOrDefault().Name;
+                await messageService.RegisterMessage(senderEmail, message);
                 await Clients.All.SendAsync("messageReceived", userName, message);
-
             }
         }
     }

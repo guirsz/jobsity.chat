@@ -3,6 +3,8 @@
     public class QueueConfigurations
     {
         public string HostName { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
         public string SubmissionQueueName { get; set; }
         public string ReceivingQueueName { get; set; }
         public string UninterpretedQueueName { get; set; }

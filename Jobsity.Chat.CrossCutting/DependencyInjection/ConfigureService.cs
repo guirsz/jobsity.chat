@@ -8,8 +8,8 @@ namespace Jobsity.Chat.CrossCutting.DependencyInjection
     {
         public static void ConfigureDependenciesService(this IServiceCollection services)
         {
-            services.AddScoped<ILoginService, LoginService>();
-            services.AddScoped<IMessageService, MessageService>();
+            services.AddTransient<ILoginService, LoginService>();
+            services.AddTransient<IMessageService, MessageService>();
         }
     }
 }

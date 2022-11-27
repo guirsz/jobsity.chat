@@ -14,7 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<MyContext>(opt => opt.UseInMemoryDatabase("JobsityInMemoryDB"));
+builder.Services.AddDbContext<MyContext>(opt => opt.UseInMemoryDatabase("JobsityInMemoryDB"), ServiceLifetime.Transient, ServiceLifetime.Singleton);
 builder.Services.ConfigureDependenciesService();
 builder.Services.ConfigureDependenciesRepository();
 
@@ -25,8 +25,8 @@ builder.Services.ConfigureAuthorization();
 builder.Services.AddSignalR();
 builder.Services.AddHealthChecks();
 
-//builder.Services.AddSingleton<ChatHub>();
 builder.Services.AddSingleton<BotQueueOperations>();
+builder.Services.AddSingleton<ChatHub>();
 
 var app = builder.Build();
 
