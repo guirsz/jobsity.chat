@@ -1,0 +1,16 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "RabbitMQHost": "localhost",
+    "RabbitMQUser": "guest",
+    "RabbitMQPassword": "guest",
+    "RabbitMQInterpretedMessagesQueueName": "InterpretedCommand",
+    "RabbitMQUninterpretedMessagesQueueName": "UninterpretedCommand",
+    "RabbitMQErrorQueueName": "BotErrors",
+    "StooqUrl": "https://stooq.com/q/l/?s=STOCK_CODE&f=sd2t2ohlcv&h&e=csv",
+    "StooqConstant": "STOCK_CODE",
+    "StooqNoInformationIdentifier": "N/D"
+  }
+}

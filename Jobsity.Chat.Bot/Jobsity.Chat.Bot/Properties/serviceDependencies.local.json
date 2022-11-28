@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "appInsights1": {
+      "type": "appInsights.sdk"
+    },
+    "rabbitmq1": {
+      "containerPorts": "5672:5672,15672:15672",
+      "secretStore": null,
+      "containerName": "rabbitmq",
+      "containerImage": "rabbitmq:3-management-alpine",
+      "type": "rabbitmq.container",
+      "connectionId": "RabbitMQConnectionString",
+      "dynamicId": null
+    }
+  }
+}
