@@ -3,12 +3,12 @@ using Jobsity.Chat.BotQueue;
 using Jobsity.Chat.CrossCutting.DependencyInjection;
 using Jobsity.Chat.Data.Context;
 using Jobsity.Chat.SignalR;
+using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -29,6 +29,8 @@ builder.Services.AddSingleton<BotQueueOperations>();
 builder.Services.AddSingleton<ChatHub>();
 
 var app = builder.Build();
+
+app.ConfigureExceptionHandler();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
