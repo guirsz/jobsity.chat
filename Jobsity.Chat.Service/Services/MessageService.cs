@@ -1,4 +1,5 @@
-﻿using Jobsity.Chat.Domain.Entities;
+﻿using Jobsity.Chat.Domain.Dtos.Messages;
+using Jobsity.Chat.Domain.Entities;
 using Jobsity.Chat.Domain.Interfaces.Repositories;
 using Jobsity.Chat.Domain.Interfaces.Services;
 
@@ -52,6 +53,12 @@ namespace Jobsity.Chat.Service.Services
             });
 
             return result != null;
+        }
+
+        public async Task<MessageDto[]> Getlast50Messages()
+        {
+            var result = await messageRepository.SelectLast50Messages();
+            return result.OrderBy(a => a.Timestamp).ToArray();
         }
     }
 }
