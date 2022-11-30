@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "d39bef05-f640-4a04-b546-605a2f1baa83",
+		"name": "Jobsity Chat API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4690308"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json();\r",
+							"pm.globals.set(\"accessToken\", response.accessToken);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"guirsz@gmail.com\",\r\n  \"password\": \"jobsity\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7175/api/Login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7175",
+					"path": [
+						"api",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJndWlyc3pAZ21haWwuY29tIiwiR3VpbGhlcm1lIl0sImp0aSI6IjA2Y2EzZGNmLWI4MjctNDE0ZS1iNzQ5LTM2YzgzNWZjMjcxNCIsImVtYWlsIjoiZ3VpcnN6QGdtYWlsLmNvbSIsIm5hbWVpZCI6ImNiOGE4ODRkLWU3NmQtNGE3Ni04Y2VhLTY2MTM2OGFiNGYzYSIsIm5iZiI6MTY2OTQwMzQ0MCwiZXhwIjoxNjY5NDA3MDQwLCJpYXQiOjE2Njk0MDM0NDAsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjcxNzUiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo3MTc1In0.msKYUlb2gzfHlZy0QVr9Uz7R5btb5J4LdoD6PAdV1yS4cLk2keQWXSLVIAZDfcosTijiJalQMWxhsqqZHugy87jMhTFkFmoJonjttRPtbYBaRTUTBMvz91BduFas9G0vYtlyxcMqzoNLQWyS2fbPxaTDlxB9MXOPhyXVN3yeSaV_xX6CjWPGgoHMovO8A8BTHCfSjUEZj2PSkVGg1rwLirwS80EdZ6Oyd55xjRodyZ-fpnzNdeeBmeFVqPFpvRLtIMllYq527b6uULlADPy5c3RYgh8BfTx-PDwbhKT0mKHK-7a9OneQedP9Mbzc5GQ_2uhz4d_jJz6o6yShl307YA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7175/health",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7175",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Available Users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7175/api/User",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7175",
+					"path": [
+						"api",
+						"User"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Messages",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7175/api/Messages",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7175",
+					"path": [
+						"api",
+						"Messages"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
