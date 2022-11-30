@@ -1,0 +1,20 @@
+<div class="app-container">
+    <div class="content">
+        <span class="appwrite-chat">Angular Chat</span>
+
+        <div class="login-container">
+            <form [formGroup]="form" class="login-form" (ngSubmit)="login()">
+                <p class="login-name">
+                    <label for="email">E-mail</label>
+                    <input type="text" id="email" formControlName="email" placeholder="Enter e-mail" />
+                </p>
+                <p class="login-name">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" formControlName="password" placeholder="***" />
+                </p>
+
+                <button type="submit">Start Chatting</button>
+            </form>
+        </div>
+    </div>
+</div>
